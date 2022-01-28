@@ -6,15 +6,29 @@ public class PlayerController : MonoBehaviour
 {
     public float speed;
 
+    public GameObject projectilePrefab;
+
     private float horizontalInput;
 
     private float boundValue = 10f;
 
     private void Update()
     {
-        LevelBounds(); 
-
+        LevelBounds();
+        PlayerMove();
+        LaunchProjectile();
+    }
+    private void LaunchProjectile()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Instantiate(projectilePrefab, transform.position, transform.rotation);
+        }
+    }
+    private void PlayerMove()
+    {
         horizontalInput = Input.GetAxis("Horizontal");
+
         transform.Translate(Vector3.right * speed * horizontalInput * Time.deltaTime);
     }
     private void LevelBounds()
