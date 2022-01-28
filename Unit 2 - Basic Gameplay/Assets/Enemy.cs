@@ -16,9 +16,15 @@ public class Enemy : MonoBehaviour
     }
     private void DestroyOutOfBounds()
     {
-        if (transform.position.z < lowerBound)
+        if (transform.position.z <= lowerBound)
         {
+            Debug.Log("Game Over!");
             Destroy(gameObject);
         }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        Destroy(gameObject);
+        Destroy(other.gameObject);
     }
 }
