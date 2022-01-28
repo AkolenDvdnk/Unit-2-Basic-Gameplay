@@ -6,9 +6,9 @@ public class EnemySpawner : MonoBehaviour
 {
     public float spawnDelay;
 
-    public Transform[] spawnPoints;
-    public GameObject enemy;
-    //public List<GameObject> enemies = new List<GameObject>();
+    public GameObject[] enemies;
+
+    private float spawnRangeX = 10;
 
     private void Start()
     {
@@ -18,16 +18,15 @@ public class EnemySpawner : MonoBehaviour
     {
         for (int i = 0; ; i++)
         {
-            int point = Random.Range(0, spawnPoints.Length);
-            GameObject enemy = Enemy(spawnPoints[point]);
+            Vector3 spawnPoint = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), 0, transform.position.z);
+            GameObject enemy = Enemy(spawnPoint);
 
             yield return new WaitForSeconds(spawnDelay);
         }
     }
-    private GameObject Enemy(Transform point)
+    private GameObject Enemy(Vector3 point)
     {
-        //GameObject prefab = enemies[Random.Range(0, enemies.Count)];
-       // return Instantiate(prefab, point.position, point.rotation);
-        return Instantiate(enemy, point.position, point.rotation);
+        int enemyIndex = Random.Range(0, enemies.Length);
+        return Instantiate(enemies[enemyIndex], point, enemies[enemyIndex].transform.rotation);
     }
 }
