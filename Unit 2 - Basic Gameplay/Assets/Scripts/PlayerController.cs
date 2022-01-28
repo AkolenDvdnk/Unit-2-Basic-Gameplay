@@ -8,14 +8,19 @@ public class PlayerController : MonoBehaviour
 
     public GameObject projectilePrefab;
 
-    private float horizontalInput;
-
     private float boundValue = 10f;
 
+    private Vector3 moveInput;
+    private Rigidbody rb;
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
     private void Update()
     {
         LevelBounds();
-        PlayerMove();
+        PlayerMovement();
         LaunchProjectile();
     }
     private void LaunchProjectile()
@@ -25,11 +30,13 @@ public class PlayerController : MonoBehaviour
             Instantiate(projectilePrefab, transform.position, transform.rotation);
         }
     }
-    private void PlayerMove()
+    private void PlayerMovement()
     {
-        horizontalInput = Input.GetAxis("Horizontal");
+        moveInput.x = Input.GetAxisRaw("Horizontal");
+        moveInput.z = Input.GetAxisRaw("Vertical");
+        moveInput.Normalize();
 
-        transform.Translate(Vector3.right * speed * horizontalInput * Time.deltaTime);
+        rb.velocity = moveInput * speed;
     }
     private void LevelBounds()
     {
