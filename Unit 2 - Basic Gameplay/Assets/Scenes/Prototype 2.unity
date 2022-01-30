@@ -1425,7 +1425,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 772c196396cccb9468967787c94f9ec1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startLives: 3
   scoreText: {fileID: 1568246324}
   livesText: {fileID: 588483952}
   endGameScreen: {fileID: 1533024565}
@@ -2295,6 +2294,7 @@ GameObject:
   - component: {fileID: 1977857993}
   - component: {fileID: 1908600674}
   - component: {fileID: 1977857990}
+  - component: {fileID: 1908600675}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2315,6 +2315,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 3.0324564, z: 1}
   m_Center: {x: 0, y: 1.5218859, z: 0}
+--- !u!114 &1908600675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1908600673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2560b180d9eb124ca17a22b6b72c2c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startLives: 3
+  deathEffect: {fileID: 8628556362645647933, guid: 475fc1e95ddc8d54ead62cee776d8911,
+    type: 3}
+  player: {fileID: 1908600673}
 --- !u!1 &1908600677
 GameObject:
   m_ObjectHideFlags: 0

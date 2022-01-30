@@ -1,13 +1,11 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 public class UIController : MonoBehaviour
 {
-    public static int Score;
-    public static int Lives;
+    public static UIController instance;
 
-    public int startLives = 3;
+    public static int Score;
 
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI livesText;
@@ -15,8 +13,9 @@ public class UIController : MonoBehaviour
 
     private void Start()
     {
+        instance = this;
+
         Score = 0;
-        Lives = startLives;
     }
     private void Update()
     {
@@ -25,13 +24,12 @@ public class UIController : MonoBehaviour
     }
     private int LivesClamped()
     {
-        if (Lives <= 0)
+        if (PlayerHealth.Lives <= 0)
         {
             endGameScreen.SetActive(true);
             return 0;
         }
         else
-            return Lives;
+            return PlayerHealth.Lives;
     }
-
 }

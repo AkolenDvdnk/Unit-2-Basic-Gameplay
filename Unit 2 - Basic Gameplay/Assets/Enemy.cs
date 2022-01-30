@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour
     {
         if (transform.position.z < lowerBound || transform.position.x < -sideBound || transform.position.x > sideBound )
         {
-            UIController.Lives--;
+            PlayerHealth.Lives--;
             Destroy(gameObject);
         }
     }
@@ -30,7 +30,7 @@ public class Enemy : MonoBehaviour
         Death();
         if (other.CompareTag("Player"))
         {
-            UIController.Lives--;
+            PlayerHealth.Lives--;
         }
     }
     private void Death()
