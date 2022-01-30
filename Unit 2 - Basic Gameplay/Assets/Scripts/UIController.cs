@@ -20,5 +20,14 @@ public class UIController : MonoBehaviour
     {
         scoreText.text = "Score: " + Score;
         livesText.text = "Lives: " + PlayerHealth.LivesClamped();
+
+        Quit();
+    }
+    private void Quit()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 }

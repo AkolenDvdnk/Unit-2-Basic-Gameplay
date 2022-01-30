@@ -1,16 +1,19 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+[RequireComponent(typeof(EnemyHealth))]
 public class Enemy : MonoBehaviour
 {
     public float speed;
 
-    public GameObject deathEffect;
-
     private float lowerBound = -10f;
     private float sideBound = 30f;
 
+    private EnemyHealth enemyHealth;
+
+    private void Awake()
+    {
+        enemyHealth = GetComponent<EnemyHealth>();
+    }
     private void Update()
     {
         DestroyOutOfBounds();
@@ -27,19 +30,10 @@ public class Enemy : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        Death();
+        enemyHealth.TakeDamage(1);
         if (other.CompareTag("Player"))
         {
             PlayerHealth.Lives--;
         }
-    }
-    private void Death()
-    {
-        GameObject effect = (GameObject)Instantiate(deathEffect, transform.position, transform.rotation);
-        Destroy(effect, 3f);
-
-        UIController.Score++;
-
-        Destroy(gameObject);
     }
 }

@@ -1427,7 +1427,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1568246324}
   livesText: {fileID: 588483952}
-  endGameScreen: {fileID: 1533024565}
 --- !u!1 &1533024565
 GameObject:
   m_ObjectHideFlags: 0
@@ -2327,7 +2326,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2560b180d9eb124ca17a22b6b72c2c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startLives: 3
+  startLives: 5
+  endGameScreen: {fileID: 1533024565}
   deathEffect: {fileID: 8628556362645647933, guid: 475fc1e95ddc8d54ead62cee776d8911,
     type: 3}
   player: {fileID: 1908600673}
