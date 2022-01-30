@@ -23,12 +23,12 @@ public class EnemySpawner : MonoBehaviour
             Enemy(spawnPointTop, Quaternion.Euler(rotationTop));
             yield return new WaitForSeconds(spawnDelay);
 
-            Vector3 spawnPointRight = new Vector3(25, 0, Random.Range(0, 18));
+            Vector3 spawnPointRight = new Vector3(28, 0, Random.Range(5, 18));
             Vector3 rotationRight = new Vector3(0, -90, 0);
             Enemy(spawnPointRight, Quaternion.Euler(rotationRight));
             yield return new WaitForSeconds(spawnDelay);
 
-            Vector3 spawnPointLeft = new Vector3(-25, 0, Random.Range(0, 18));
+            Vector3 spawnPointLeft = new Vector3(-28, 0, Random.Range(5, 18));
             Vector3 rotationLeft = new Vector3(0, 90, 0);
             Enemy(spawnPointLeft, Quaternion.Euler(rotationLeft));
             yield return new WaitForSeconds(spawnDelay);

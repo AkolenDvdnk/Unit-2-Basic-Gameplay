@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     public float speed;
 
     public GameObject projectilePrefab;
+    public Transform firePoint;
 
     private float boundValue = 10f;
 
@@ -27,7 +28,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Instantiate(projectilePrefab, transform.position, transform.rotation);
+            Instantiate(projectilePrefab, firePoint.transform.position, firePoint.transform.rotation);
         }
     }
     private void PlayerMovement()

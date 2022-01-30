@@ -1435,8 +1435,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 15.0254545, y: 26.775, z: 33.24956}
-  m_Center: {x: -0, y: 12.97174, z: -6.2538066}
+  m_Size: {x: 15.0254545, y: 26.775, z: 43.65412}
+  m_Center: {x: -0, y: 12.97174, z: -1.0515319}
 --- !u!114 &2053578548738338780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1450,6 +1450,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  deathEffect: {fileID: 8628556362645647933, guid: 475fc1e95ddc8d54ead62cee776d8911,
+    type: 3}
 --- !u!1 &3607642661043505100
 GameObject:
   m_ObjectHideFlags: 0

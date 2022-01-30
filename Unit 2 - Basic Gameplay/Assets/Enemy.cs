@@ -6,7 +6,10 @@ public class Enemy : MonoBehaviour
 {
     public float speed;
 
+    public GameObject deathEffect;
+
     private float lowerBound = -10f;
+    private float sideBound = 30f;
 
     private void Update()
     {
@@ -16,15 +19,27 @@ public class Enemy : MonoBehaviour
     }
     private void DestroyOutOfBounds()
     {
-        if (transform.position.z <= lowerBound)
+        if (transform.position.z < lowerBound || transform.position.x < -sideBound || transform.position.x > sideBound )
         {
-            Debug.Log("Game Over!");
+            UIController.Lives--;
             Destroy(gameObject);
         }
     }
     private void OnTriggerEnter(Collider other)
     {
+        Death();
+        if (other.CompareTag("Player"))
+        {
+            UIController.Lives--;
+        }
+    }
+    private void Death()
+    {
+        GameObject effect = (GameObject)Instantiate(deathEffect, transform.position, transform.rotation);
+        Destroy(effect, 3f);
+
+        UIController.Score++;
+
         Destroy(gameObject);
-        Destroy(other.gameObject);
     }
 }
